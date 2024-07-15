@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Management App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="imagesbag.jpg" alt="Left image" class="Left">
+        <img src="imagesemoji" alt="center image" class="center">
+        <img src="images.jfif" alt="Right Image" class="Right Image">
+    </div>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#principal">Principal</a></li>
+            <li><a href="#bursar">Bursar</a></li>
+            <li><a href="#accountant">Accountant
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->   
+    <main>
+        <section id="purchase-info">
+            <h1>Purchase Info</h1>
+            <div class="purchase-info">
+                <input type="text" placeholder="Add Purchase Info">
+                <div class="purchase-items">
+                    <div class="item">
+                        <p>Item 1</p>
+                        <p>Price: $XX.XX</p>
+                    </div>
+                    <div class="item">
+                        <p>Item 2</p>
+                        <p>Price: $XX.XX</p>
+                    </div>
+                </div>
+                <button class="approve-btn">Approve</button>
+            </div>
+        </section>
+
+        <section id="receipt-info">
+            <h1>Receipt Information</h1>
+            <div class="receipt-item">
+                <p>Cheque No:</p>
+                <h1>XXX</h1>
+            </div>
+            <div class="receipt-item">
+                <p>College ID:</p>
+                <h1>XXX</h1>
+            </div>
+            <div class="receipt-item">
+                <p>Account Name:</p>
+                <h1>School Finance Dept</h1>
+            </div>
+            <div class="receipt-item">
+                <p>Items Purchased:</p>
+                <h1>Chalk etc.</h1>
+            </div>
+            <div class="receipt-item">
+                <p>Total Cost:</p>
+                <h1>$XX.XX</h1>
+            </div>
+            <button class="print-btn">Print Receipt</button>
+        </section>
+    </main>
+
+    <script src="scripts.js">
+        document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('main section');
+
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').substring(1);
+            sections.forEach(section => {
+                section.style.display = section.id === targetId ? 'block' : 'none';
+            });
+        });
+    });
+
+    // Initially display the first section
+    sections.forEach((section, index) => {
+        section.style.display = index === 0 ? 'block' : 'none';
+    });
+});
+ </script>
+</body>
+</html>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+.container{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    width:100;
+}
+image -container img{
+    max-width:100px;
+    height: 100px;;
+}
+.principal,.bursar{
+    text-align: center;
+    margin-top:20px;
+}
+.left{
+    align-self:flex-start;
+    margin:20px;
+}
+.center{
+    align-self: center;
+}
+.right{
+    align-items: flex-end;
+}
+nav ul img{
+    text-align: center;
+    padding:20px;
+}
+nav ul img logo{
+    width:100px;
+    height:auto;
+    display:block;
+    margin:0;
+}
+nav{
+    background-color:black;
+    color:white;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+main {
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+h1 {
+    color: #343a40;
+    margin-bottom: 1em;
+}
+
+.purchase-info, .receipt-info {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-info input {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.purchase-items .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+}
+
+.approve-btn, .print-btn {
+    display: block;
+    width: 15%;
+    height: 35px;
+    padding: 0.75em;
+    background-color:blue;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.approve-btn:hover, .print-btn:hover {
+    background-color:black;
+}
+
+.receipt-item {
+    margin-bottom: 0.5em;
+}
+</style>
+
